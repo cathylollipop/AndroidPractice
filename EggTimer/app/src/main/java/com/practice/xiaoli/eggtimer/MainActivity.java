@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
@@ -15,10 +16,13 @@ public class MainActivity extends AppCompatActivity {
     TextView timerTextView;
     CountDownTimer countDownTimer;
     Button controllerButton;
+    ImageView eggImage;
     boolean counterIsActive = false;
 
     public void resetTimer(){
         counterIsActive = false;
+        eggImage.setImageResource(R.drawable.egg);
+        timerTextView.setVisibility(View.VISIBLE);
         timerTextView.setText(getString(R.string.timer_text_view, "0", "30"));
         timerSeekBar.setProgress(30);
         controllerButton.setText(getString(R.string.controller_button_text, "Go!"));
@@ -54,7 +58,9 @@ public class MainActivity extends AppCompatActivity {
 
                 @Override
                 public void onFinish() {
-                    resetTimer();
+                    eggImage.setImageResource(R.drawable.chicken);
+                    controllerButton.setText(getString(R.string.controller_button_text, "Restart"));
+                    timerTextView.setVisibility(View.INVISIBLE);
                     MediaPlayer mPlayer = MediaPlayer.create(getApplicationContext(), R.raw.airhorn);
                     mPlayer.start();
                 }
@@ -78,6 +84,8 @@ public class MainActivity extends AppCompatActivity {
 
         controllerButton = (Button)findViewById(R.id.controllerButton);
         controllerButton.setText(getString(R.string.controller_button_text, "Go!"));
+
+        eggImage = findViewById(R.id.eggImage);
 
         timerSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
