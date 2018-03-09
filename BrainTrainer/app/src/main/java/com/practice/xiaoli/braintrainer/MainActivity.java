@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
         generateNewQuestion();
 
-        countDownTimer = new CountDownTimer(3000, 1000) {
+        countDownTimer = new CountDownTimer(30000, 1000) {
             @Override
             public void onTick(long l) {
                 timerTextView.setText(String.valueOf(l / 1000) + "s");
