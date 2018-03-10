@@ -3,6 +3,7 @@ package com.practice.xiaoli.memorableplaces;
 import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
@@ -26,6 +27,8 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.io.IOException;
+import java.lang.reflect.Array;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -169,5 +172,22 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         MainActivity.arrayAdapter.notifyDataSetChanged();
 
         Toast.makeText(this, "Location saved!", Toast.LENGTH_LONG).show();
+
+        SharedPreferences sharedPreferences = this.getSharedPreferences("com.practice.xiaoli.memorableplaces", Context.MODE_PRIVATE);
+        ArrayList<String> latitudes = new ArrayList<>();
+        ArrayList<String> longtitudes = new ArrayList<>();
+
+        for(LatLng coordinate: MainActivity.locations){
+            latitudes.add(Double.toString(coordinate.latitude));
+            longtitudes.add(Double.toString(coordinate.longitude));
+        }
+
+        try {
+            sharedPreferences.edit().putString("places", ObjectSerializer.serialize(MainActivity.places)).apply();
+            sharedPreferences.edit().putString("latitudes", ObjectSerializer.serialize(latitudes)).apply();
+            sharedPreferences.edit().putString("longtitudes", ObjectSerializer.serialize(longtitudes)).apply();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
