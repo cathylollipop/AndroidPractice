@@ -43,15 +43,15 @@
       <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ParseStarterProject/src/main/java/com/parse/starter/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-20">
-              <caret line="70" column="18" lean-forward="true" selection-start-line="70" selection-start-column="18" selection-end-line="70" selection-end-column="18" />
+            <state relative-caret-position="-75">
+              <caret line="65" column="90" lean-forward="false" selection-start-line="65" selection-start-column="90" selection-end-line="65" selection-end-column="90" />
               <folding>
-                <element signature="e#0#3402#0" expanded="true" />
+                <element signature="e#0#4536#0" expanded="true" />
                 <element signature="imports" expanded="true" />
-                <element signature="e#2210#2531#0" expanded="true" />
-                <element signature="e#2530#2531#0" expanded="true" />
-                <element signature="e#2696#3033#0" expanded="true" />
-                <element signature="e#3032#3033#0" expanded="true" />
+                <element signature="e#3006#3327#0" expanded="true" />
+                <element signature="e#3326#3327#0" expanded="true" />
+                <element signature="e#3492#3829#0" expanded="true" />
+                <element signature="e#3828#3829#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -64,7 +64,7 @@
           </provider>
           <provider editor-type-id="text-editor">
             <state relative-caret-position="930">
-              <caret line="66" column="32" lean-forward="false" selection-start-line="66" selection-start-column="32" selection-end-line="66" selection-end-column="32" />
+              <caret line="67" column="32" lean-forward="false" selection-start-line="67" selection-start-column="32" selection-end-line="67" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -2514,7 +2514,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1521481251619" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1521484263554" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -2562,7 +2562,7 @@
       </Profilers>
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1521481251619" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1521484263554" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -2745,7 +2745,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1521481251621" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1521484263555" />
       </method>
     </configuration>
     <list size="1">
@@ -2923,12 +2923,12 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#3402#0" expanded="true" />
+            <element signature="e#0#4536#0" expanded="true" />
             <element signature="imports" expanded="true" />
-            <element signature="e#2210#2531#0" expanded="true" />
-            <element signature="e#2530#2531#0" expanded="true" />
-            <element signature="e#2696#3033#0" expanded="true" />
-            <element signature="e#3032#3033#0" expanded="true" />
+            <element signature="e#3006#3327#0" expanded="true" />
+            <element signature="e#3326#3327#0" expanded="true" />
+            <element signature="e#3492#3829#0" expanded="true" />
+            <element signature="e#3828#3829#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2996,22 +2996,22 @@
       </provider>
       <provider editor-type-id="text-editor">
         <state relative-caret-position="930">
-          <caret line="66" column="32" lean-forward="false" selection-start-line="66" selection-start-column="32" selection-end-line="66" selection-end-column="32" />
+          <caret line="67" column="32" lean-forward="false" selection-start-line="67" selection-start-column="32" selection-end-line="67" selection-end-column="32" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ParseStarterProject/src/main/java/com/parse/starter/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-20">
-          <caret line="70" column="18" lean-forward="true" selection-start-line="70" selection-start-column="18" selection-end-line="70" selection-end-column="18" />
+        <state relative-caret-position="-75">
+          <caret line="65" column="90" lean-forward="false" selection-start-line="65" selection-start-column="90" selection-end-line="65" selection-end-column="90" />
           <folding>
-            <element signature="e#0#3402#0" expanded="true" />
+            <element signature="e#0#4536#0" expanded="true" />
             <element signature="imports" expanded="true" />
-            <element signature="e#2210#2531#0" expanded="true" />
-            <element signature="e#2530#2531#0" expanded="true" />
-            <element signature="e#2696#3033#0" expanded="true" />
-            <element signature="e#3032#3033#0" expanded="true" />
+            <element signature="e#3006#3327#0" expanded="true" />
+            <element signature="e#3326#3327#0" expanded="true" />
+            <element signature="e#3492#3829#0" expanded="true" />
+            <element signature="e#3828#3829#0" expanded="true" />
           </folding>
         </state>
       </provider>

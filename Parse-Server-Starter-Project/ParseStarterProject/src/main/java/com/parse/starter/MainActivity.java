@@ -11,9 +11,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,11 +31,23 @@ import com.parse.ParseUser;
 import com.parse.SaveCallback;
 import com.parse.SignUpCallback;
 
+import java.security.Key;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+
+public class MainActivity extends AppCompatActivity implements View.OnClickListener, View.OnKeyListener {
 
   Boolean signupModeActive = true;
   TextView signupModeTextView;
+  EditText passwordEditText;
+  ImageView logoImageView;
+  RelativeLayout relativeLayout;
+
+  public boolean onKey(View view, int i, KeyEvent keyEvent){
+    if(i == KeyEvent.KEYCODE_ENTER && keyEvent.getAction() == KeyEvent.ACTION_DOWN){
+      signup(view);
+    }
+    return false;
+  }
 
   public void onClick(View view){
     Button signupButton = (Button)findViewById(R.id.signupButton);
@@ -46,13 +62,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         signupModeTextView.setText("Or, Login");
         signupModeActive = true;
       }
-
+    }else if(view.getId() == R.id.logoImageView || view.getId() == R.id.relativeLayout){
+      // below two lines makes keyboard hide when clicking logo or anywhere on background (relativelayout)
+      InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+      inputMethodManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
     }
   }
 
   public void signup(View view){
     EditText usernameEditText = (EditText)findViewById(R.id.usernameEditText);
-    EditText passwordEditText = (EditText)findViewById(R.id.passwordEditText);
 
     if(usernameEditText.getText().toString().matches("") || passwordEditText.getText().toString().matches("")){
       Toast.makeText(getApplicationContext(), "Username and password are required.", Toast.LENGTH_LONG).show();
@@ -97,7 +115,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     signupModeTextView = (TextView)findViewById(R.id.signupModeTextView);
     signupModeTextView.setOnClickListener(this);
-    
+    passwordEditText = (EditText)findViewById(R.id.passwordEditText);
+    logoImageView = (ImageView)findViewById(R.id.logoImageView);
+    relativeLayout = (RelativeLayout)findViewById(R.id.relativeLayout);
+
+    passwordEditText.setOnKeyListener(this);
+    logoImageView.setOnClickListener(this);
+    relativeLayout.setOnClickListener(this);
+
     ParseAnalytics.trackAppOpenedInBackground(getIntent());
   }
 
