@@ -42,6 +42,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
   ImageView logoImageView;
   RelativeLayout relativeLayout;
 
+  public void showUserList(){
+    Intent intent = new Intent(this, UserListActivity.class);
+    startActivity(intent);
+  }
+
   public boolean onKey(View view, int i, KeyEvent keyEvent){
     if(i == KeyEvent.KEYCODE_ENTER && keyEvent.getAction() == KeyEvent.ACTION_DOWN){
       signup(view);
@@ -86,6 +91,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
           public void done(ParseException e) {
             if(e == null){
               Log.i("SignUp", "Successful");
+              showUserList();
             }else{
               Toast.makeText(getApplicationContext(), "User Sign Up Failed.", Toast.LENGTH_LONG).show();
             }
@@ -98,13 +104,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
           public void done(ParseUser user, ParseException e) {
             if(e == null && user != null){
               Log.i("Login", "Successful");
+              showUserList();
             }else{
               Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
             }
           }
         });
       }
-
     }
   }
 
@@ -122,6 +128,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     passwordEditText.setOnKeyListener(this);
     logoImageView.setOnClickListener(this);
     relativeLayout.setOnClickListener(this);
+
+    if(ParseUser.getCurrentUser() != null){
+      showUserList();
+    }
 
     ParseAnalytics.trackAppOpenedInBackground(getIntent());
   }
