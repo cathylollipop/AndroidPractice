@@ -15,6 +15,8 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -38,14 +40,6 @@ public class UserListActivity extends AppCompatActivity {
     ArrayList<String> usernames;
     ArrayAdapter arrayAdapter;
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.share_menu, menu);
-
-        return super.onCreateOptionsMenu(menu);
-    }
-
     public void getPhoto(){
         Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         startActivityForResult(intent, 1);
@@ -62,6 +56,14 @@ public class UserListActivity extends AppCompatActivity {
     }
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.share_menu, menu);
+
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if(item.getItemId() == R.id.share){
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -73,6 +75,11 @@ public class UserListActivity extends AppCompatActivity {
             }else{
                 getPhoto();
             }
+        }else if(item.getItemId() == R.id.logout){
+            ParseUser.logOut();
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(intent);
+
         }
         return super.onOptionsItemSelected(item);
     }
@@ -118,9 +125,21 @@ public class UserListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_list);
 
+        setTitle("User Feed");
+
         userListView = (ListView)findViewById(R.id.userListView);
         usernames = new ArrayList<>();
         arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, usernames);
+
+        // when click on one item of userListView, it will jump to UserFeeActivity and dynamically create an imageView and populates the feed posted by the user and display that to the user
+        userListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(getApplicationContext(), UserFeedActivity.class);
+                intent.putExtra("username", usernames.get(position));
+                startActivity(intent);
+            }
+        });
 
         ParseQuery<ParseUser> query = ParseUser.getQuery();
         query.whereNotEqualTo("username", ParseUser.getCurrentUser().getUsername());

@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
               Log.i("SignUp", "Successful");
               showUserList();
             }else{
-              Toast.makeText(getApplicationContext(), "User Sign Up Failed.", Toast.LENGTH_LONG).show();
+              Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
             }
           }
         });
@@ -119,6 +119,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
 
+    setTitle("Instagram");
+
     signupModeTextView = (TextView)findViewById(R.id.signupModeTextView);
     signupModeTextView.setOnClickListener(this);
     passwordEditText = (EditText)findViewById(R.id.passwordEditText);
@@ -129,9 +131,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     logoImageView.setOnClickListener(this);
     relativeLayout.setOnClickListener(this);
 
-    if(ParseUser.getCurrentUser() != null){
-      showUserList();
-    }
+//    if(ParseUser.getCurrentUser() != null){
+//      showUserList();
+//    }
 
     ParseAnalytics.trackAppOpenedInBackground(getIntent());
   }
